@@ -1,0 +1,44 @@
+﻿<Window x:Class="DictMVVM.View.AddWord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DictMVVM.View" 
+        xmlns:viewmodel="clr-namespace:DictMVVM.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        mc:Ignorable="d"
+        Title="AddTovar" Height="450" Width="800" Background="#FFA4A4A4">
+    <Grid Margin="10" Background="#FFA4A4A4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Товар:" Grid.Row="0"/>
+        <TextBox Text="{Binding NewWordTerm}" Grid.Row="1" Margin="0,5"/>
+
+        <Label Content="Описание:" Grid.Row="2" Margin="0,10,0,0"/>
+        <TextBox Text="{Binding NewWordDefinition}" Grid.Row="3" Margin="0,5"/>
+
+        <Button Content="Добавить" Grid.Row="5" Width="100" Margin="0,10,30,0" HorizontalAlignment="Right" Command="{Binding SaveWordCommand}" Grid.RowSpan="2" Click="Button_Click" Background="#FF3A9DB7"/>
+        <Button Content="Отменить" Grid.Row="5" Width="100" Margin="10,10,0,0" HorizontalAlignment="Left" IsCancel="True" Background="#FF3A9DB7"/>
+        <!--<Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding NewWordTerm}" Value="">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding NewWordDefinition}" Value="">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>-->
+    </Grid>
+</Window>
